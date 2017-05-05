@@ -15,9 +15,9 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 | gold | ```Long``` | 0 | Total gold amount |
 | levelInfo | ```LevelInfo``` | see below | Level Information |
 | playerClass | ```PlayerClass``` | see below | Player class information |
-| race | ```PlayerRace``` | see below | Player race information |
-| life | ```Attribute``` | see below | Life attribute |
-| mana | ```Attribute``` | see below | Mana attribute |
+| playerRace | ```PlayerRace``` | see below | Player race information |
+| life | ```SimpleAttribute``` | see below | Life attribute |
+| mana | ```SimpleAttribute``` | see below | Mana attribute |
 | attributes | ```Map<StructuralAttributeDomain, StructuralAttrbutes>``` | see below | Structural Attributes |
 | equipment | ```Map<EquipmentType, Equipment>``` | see below | Players equipment |
 
@@ -30,11 +30,17 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 | next | ```Integer``` | 1200 | Points to reach next level |
 
 ```PlayerClass``` class:
+
 ```PlayerRace``` class:
-```Attribute``` class:
+
+```SimpleAttribute``` class:
+
 ```StructuralAttributeDomain``` class:
+
 ```StructuralAttribute``` class:
+
 ```EquipmentType``` class:
+
 ```Equipment``` class:
 
 ## Attributes
