@@ -104,8 +104,8 @@ Attributes can be simple or structural.
 To calculate the Simple Attributes:
 
 ```
-Life = 2d20 + Class.life + Race.life
-Mana = 1d20 + Class.mana + Race.mana
+Life = 2d20 + Class.life + Race.gender.life
+Mana = 1d20 + Class.mana + Race.gender.mana
 ```
 
 ### Structural Attributes
@@ -120,7 +120,7 @@ Mana = 1d20 + Class.mana + Race.mana
 To calculate the Structural Attributes:
 
 ```
-s = 1d20 + class.s + race.s + sum(equip.s)
+s = class.s + race.gender.s + sum(equip.s)
 ```
 
 
