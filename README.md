@@ -58,7 +58,7 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 
 | Attrbitute | Type | Initial Value | Description |
 | --- |:---:|:---:| --- |
-| name | ```String``` | [Male|Female] | The gender name |
+| name | ```String``` | see Races section | The gender name |
 
 ```SimpleAttribute``` class:
 
