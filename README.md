@@ -223,7 +223,7 @@ s = 1d20 + class.s + race.s + sum(equip.s)
 **Build a player**:
 
 ```
-/api/players/name/{name}/
+/api/players/name/{name}
 ```
 
 Returns a named human warrior male player unequipped.
