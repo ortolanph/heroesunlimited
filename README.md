@@ -160,9 +160,9 @@ s = class.s + race.gender.s + sum(equip.s)
 |:---:| ---- | ---:| ---:| ---:| ---:|
 |  1  | Wood Sword | +3 | | | |
 |  2  | Iron Sword | +5 | | | |
-|  3  | Green Destiny | +9 | | | |
+|  3  | Green Destiny | +9 | | +3 | |
 |  4  | Hrunting | +9 | +3 | | |
-|  5  | Excalibur | +11 | | +3 | |
+|  5  | Excalibur | +11 | | +5 | |
 
 ### Shields
 
