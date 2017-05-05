@@ -18,7 +18,7 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 | playerRace | ```PlayerRace``` | see below | Player race information |
 | life | ```SimpleAttribute``` | see below | Life attribute |
 | mana | ```SimpleAttribute``` | see below | Mana attribute |
-| attributes | ```Map<StructuralAttributeDomain, StructuralAttrbutes>``` | see below | Structural Attributes |
+| attributes | ```Map<StructuralAttributeDomain, StructuralAttrbutes>``` | see below | Structural attributes calculated |
 | equipment | ```Map<EquipmentType, Equipment>``` | see below | Players equipment |
 
 ```LevelInfo``` class:
@@ -29,19 +29,61 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 | experience | ```Integer``` | 0 | Player's total experience |
 | next | ```Integer``` | 1200 | Points to reach next level |
 
-```PlayerClass``` class:
+```PlayerClass``` enum:
 
-```PlayerRace``` class:
+| Attrbitute | Type | Initial Value | Description |
+| --- |:---:|:---:| --- |
+| name | ```String``` | see Classes section | The attribute name |
+| life | ```Integer``` | see Classes section | Life points modifier |
+| mana | ```Integer``` | see Classes section | Mana points modifier |
+| str | ```Integer``` | see Classes section | Strength points modifier |
+| dex | ```Integer``` | see Classes section | Dexterity points modifier |
+| int | ```Integer``` | see Classes section | Intelligence points modifier |
+| def | ```Integer``` | see Classes section | Defense points modifier |
+
+```PlayerRace``` enum:
+
+| Attrbitute | Type | Initial Value | Description |
+| --- |:---:|:---:| --- |
+| name | ```String``` | see Races section | The attribute name |
+| gender | ```Gender``` | see below | The gender |
+| life | ```Integer``` | see Races section | Life points modifier |
+| mana | ```Integer``` | see Races section | Mana points modifier |
+| str | ```Integer``` | see Races section | Strength points modifier |
+| dex | ```Integer``` | see Races section | Dexterity points modifier |
+| int | ```Integer``` | see Races section | Intelligence points modifier |
+| def | ```Integer``` | see Races section | Defense points modifier |
+
+```Gender``` enum: 
+
+| Attrbitute | Type | Initial Value | Description |
+| --- |:---:|:---:| --- |
+| name | ```String``` | [Male|Female] | The gender name |
 
 ```SimpleAttribute``` class:
 
-```StructuralAttributeDomain``` class:
+| Attrbitute | Type | Initial Value | Description |
+| --- |:---:|:---:| --- |
+
+```StructuralAttributeDomain``` enum:
+
+| Attrbitute | Type | Initial Value | Description |
+| --- |:---:|:---:| --- |
 
 ```StructuralAttribute``` class:
 
+| Attrbitute | Type | Initial Value | Description |
+| --- |:---:|:---:| --- |
+
 ```EquipmentType``` class:
 
+| Attrbitute | Type | Initial Value | Description |
+| --- |:---:|:---:| --- |
+
 ```Equipment``` class:
+
+| Attrbitute | Type | Initial Value | Description |
+| --- |:---:|:---:| --- |
 
 ## Attributes
 
@@ -211,12 +253,12 @@ Returns a named player with selected class, race and gender without wearables.
 **Equip a wearable**
 
 ```
-/api/players/{id}/weapon/{weaponId}
-/api/players/{id}/shield/{shieldId}
-/api/players/{id}/armor/{armorId}
-/api/players/{id}/boots/{bootsId}
-/api/players/{id}/helmets/{helmetId}
-/api/players/{id}/accessory/{accessoryId}
+/api/equipment/player/{id}/weapon/{weaponId}
+/api/equipment/player/{id}/shield/{shieldId}
+/api/equipment/player/{id}/armor/{armorId}
+/api/equipment/player/{id}/boots/{bootsId}
+/api/equipment/player/{id}/helmet/{helmetId}
+/api/equipment/player/{id}/accessory/{accessoryId}
 ```
 
 Where ```id``` is the created player id and ```{xId}``` is the wearable id according to previous sections.
