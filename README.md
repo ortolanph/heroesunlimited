@@ -85,8 +85,8 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 
 | Attrbitute | Type | Initial Value | Description |
 | --- |:---:|:---:| --- |
-| type | ```EquipmentType``` | see above | The equipment type |
 | id | ```Integer``` | see Equipment sections | The equipment id |
+| type | ```EquipmentType``` | see above | The equipment type |
 | name | ```String``` | | The equipment name |
 | modifier | ```AttributeModifier``` | see below | The attribute modifier |
 
