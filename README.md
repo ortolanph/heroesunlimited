@@ -86,6 +86,7 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 | Attrbitute | Type | Initial Value | Description |
 | --- |:---:|:---:| --- |
 | type | ```EquipmentType``` | see above | The equipment type |
+| id | ```Integer``` | see Equipment sections | The equipment id |
 | name | ```String``` | | The equipment name |
 | modifier | ```AttributeModifier``` | see below | The attribute modifier |
 
@@ -225,7 +226,7 @@ s = 1d20 + class.s + race.s + sum(equip.s)
 /api/players/name/{name}/
 ```
 
-Returns a named human warrior male player without wearables.
+Returns a named human warrior male player unequipped.
 
 **Build a player with a class**
 
@@ -239,7 +240,7 @@ Where ```class``` is:
 * ROGUE
 * WARRIOR
 
-Returns a named human male player with selected class without wearables.
+Returns a named human male player with selected class unequipped.
 
 
 **Build a player with a class, race and gender**
@@ -265,10 +266,10 @@ Where ```gender``` is:
 * MALE
 * FEMALE
 
-Returns a named player with selected class, race and gender without wearables.
+Returns a named player with selected class, race and gender unequipped.
 
 
-**Equip a wearable**
+**Equip**
 
 ```
 /api/equipment/player/{id}/weapon/{weaponId}
@@ -279,4 +280,4 @@ Returns a named player with selected class, race and gender without wearables.
 /api/equipment/player/{id}/accessory/{accessoryId}
 ```
 
-Where ```id``` is the created player id and ```{xId}``` is the wearable id according to previous sections.
+Where ```id``` is the created player id and ```{xId}``` is the equipment id according to previous sections.
