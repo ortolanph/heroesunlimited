@@ -126,11 +126,11 @@ s = 1d20 + class.s + race.s + sum(equip.s)
 
 ## Classes
 
-|  Class  | DICE |LIFE | MANA | STR | DEX | INT | DEF |
-| ------- | ---  | ---:|  ---:| ---:| ---:| ---:| ---:|
-| Cleric  | 1d20 |  +5 |  +15 |  +5 |  +5 | +15 |  +5 |
-| Rogue   | 1d20 | +10 |   +5 | +10 | +15 | +10 | +10 |
-| Warrior | 1d20 | +15 |   +5 | +15 |  +5 |  +5 | +15 |
+|  Class  |LIFE | MANA | STR | DEX | INT | DEF |
+| ------- | ---:|  ---:| ---:| ---:| ---:| ---:|
+| Cleric  |  +5 |  +15 |  +5 |  +5 | +15 |  +5 |
+| Rogue   | +10 |   +5 | +10 | +15 | +10 | +10 |
+| Warrior | +15 |   +5 | +15 |  +5 |  +5 | +15 |
 
 ## Races
 
