@@ -18,7 +18,7 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 | playerRace | ```PlayerRace``` | see below | Player race information |
 | life | ```SimpleAttribute``` | see below | Life attribute |
 | mana | ```SimpleAttribute``` | see below | Mana attribute |
-| attributes | ```Map<String, Integer>``` | see below | Structural attributes calculated |
+| attributes | ```Map<StructuralAttribute, Integer>``` | see below | Structural attributes calculated |
 | equipment | ```Map<EquipmentType, Equipment>``` | see below | Players equipment |
 
 ```LevelInfo``` class:
