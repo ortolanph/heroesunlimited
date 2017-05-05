@@ -18,7 +18,7 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 | playerRace | ```PlayerRace``` | see below | Player race information |
 | life | ```SimpleAttribute``` | see below | Life attribute |
 | mana | ```SimpleAttribute``` | see below | Mana attribute |
-| attributes | ```Map<StructuralAttributeDomain, StructuralAttrbutes>``` | see below | Structural attributes calculated |
+| attributes | ```Map<StructuralAttribute, Structural>``` | see below | Structural attributes calculated |
 | equipment | ```Map<EquipmentType, Equipment>``` | see below | Players equipment |
 
 ```LevelInfo``` class:
@@ -64,11 +64,15 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 
 | Attrbitute | Type | Initial Value | Description |
 | --- |:---:|:---:| --- |
+| initial | ```Integer``` | | The initial value of the attribute |
+| current | ```Integer``` | | The current value of the attribute |
 
-```StructuralAttributeDomain``` enum:
+```StructuralAttribute``` enum:
 
 | Attrbitute | Type | Initial Value | Description |
 | --- |:---:|:---:| --- |
+| symbol | ```String``` | see Structural Attributes section | The structural attribute symbol |
+| name | ```String``` | see Structural Attributes section | The structural attribute symbol |
 
 ```StructuralAttribute``` class:
 
