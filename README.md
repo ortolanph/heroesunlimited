@@ -172,7 +172,7 @@ s = class.s + race.gender.s + sum(equip.s)
 |  2  | Iron Shield | | | | +5 |
 |  3  | Steel Sword | | | | +7 |
 |  4  | Oakenshield | | +3 | | +9 |
-|  5  | Mithril Shield | +11 | +5 | | +11 |
+|  5  | Mithril Shield | +3 | +5 | | +11 |
 
 ### Armors
 
