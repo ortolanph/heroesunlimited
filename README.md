@@ -6,9 +6,36 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 
 ## Player Structure
 
-| Attrbitute | Description |
-| --- | --- |
-| name | Player's name |
+```PlayableCharacter``` class:
+
+| Attrbitute | Type | Initial Value | Description |
+| --- |:---:|:---:| --- |
+| id | ```Integer``` | | The Player's Id |
+| name | ```String``` | | Player's name |
+| gold | ```Long``` | 0 | Total gold amount |
+| levelInfo | ```LevelInfo``` | see below | Level Information |
+| playerClass | ```PlayerClass``` | see below | Player class information |
+| race | ```PlayerRace``` | see below | Player race information |
+| life | ```Attribute``` | see below | Life attribute |
+| mana | ```Attribute``` | see below | Mana attribute |
+| attributes | ```Map<StructuralAttributeDomain, StructuralAttrbutes>``` | see below | Structural Attributes |
+| equipment | ```Map<EquipmentType, Equipment>``` | see below | Players equipment |
+
+```LevelInfo``` class:
+
+| Attrbitute | Type | Initial Value | Description |
+| --- |:---:|:---:| --- |
+| level | ```Integer``` | 1 | Player's level |
+| experience | ```Integer``` | 0 | Player's total experience |
+| next | ```Integer``` | 1200 | Points to reach next level |
+
+```PlayerClass``` class:
+```PlayerRace``` class:
+```Attribute``` class:
+```StructuralAttributeDomain``` class:
+```StructuralAttribute``` class:
+```EquipmentType``` class:
+```Equipment``` class:
 
 ## Attributes
 
