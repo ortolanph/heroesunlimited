@@ -48,12 +48,12 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 
 | Attrbitute | Type | Initial Value | Description |
 | --- |:---:|:---:| --- |
-| life | ```Integer``` | see Races section | Life points modifier |
-| mana | ```Integer``` | see Races section | Mana points modifier |
-| str | ```Integer``` | see Races section | Strength points modifier |
-| dex | ```Integer``` | see Races section | Dexterity points modifier |
-| int | ```Integer``` | see Races section | Intelligence points modifier |
-| def | ```Integer``` | see Races section | Defense points modifier |
+| life | ```Integer``` | 0 | Life points modifier |
+| mana | ```Integer``` | 0 | Mana points modifier |
+| strength | ```Integer``` | 0 | Strength points modifier |
+| dexterity | ```Integer``` | 0 | Dexterity points modifier |
+| intelligence | ```Integer``` | 0 | Intelligence points modifier |
+| defense | ```Integer``` | 0 | Defense points modifier |
 
 ```Gender``` enum: 
 
