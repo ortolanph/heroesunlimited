@@ -18,7 +18,7 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 | playerRace | ```PlayerRace``` | see below | Player race information |
 | life | ```SimpleAttribute``` | see below | Life attribute |
 | mana | ```SimpleAttribute``` | see below | Mana attribute |
-| attributes | ```Map<StructuralAttribute, Structural>``` | see below | Structural attributes calculated |
+| attributes | ```Map<StructuralAttribute, Integer>``` | see below | Structural attributes calculated |
 | equipment | ```Map<EquipmentType, Equipment>``` | see below | Players equipment |
 
 ```LevelInfo``` class:
@@ -34,12 +34,7 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 | Attrbitute | Type | Initial Value | Description |
 | --- |:---:|:---:| --- |
 | name | ```String``` | see Classes section | The attribute name |
-| life | ```Integer``` | see Classes section | Life points modifier |
-| mana | ```Integer``` | see Classes section | Mana points modifier |
-| str | ```Integer``` | see Classes section | Strength points modifier |
-| dex | ```Integer``` | see Classes section | Dexterity points modifier |
-| int | ```Integer``` | see Classes section | Intelligence points modifier |
-| def | ```Integer``` | see Classes section | Defense points modifier |
+| modifier | ```AttributeModifier``` | see below | The attribute modifier |
 
 ```PlayerRace``` enum:
 
@@ -47,6 +42,12 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 | --- |:---:|:---:| --- |
 | name | ```String``` | see Races section | The attribute name |
 | gender | ```Gender``` | see below | The gender |
+| modifier | ```AttributeModifier``` | see below | The attribute modifier |
+
+```AttributeModifier``` class:
+
+| Attrbitute | Type | Initial Value | Description |
+| --- |:---:|:---:| --- |
 | life | ```Integer``` | see Races section | Life points modifier |
 | mana | ```Integer``` | see Races section | Mana points modifier |
 | str | ```Integer``` | see Races section | Strength points modifier |
@@ -74,20 +75,19 @@ Simple RPG to test Asynchronous Programming in Javascript and Java.
 | symbol | ```String``` | see Structural Attributes section | The structural attribute symbol |
 | name | ```String``` | see Structural Attributes section | The structural attribute symbol |
 
-```StructuralAttribute``` class:
-
-| Attrbitute | Type | Initial Value | Description |
-| --- |:---:|:---:| --- |
-
 ```EquipmentType``` class:
 
 | Attrbitute | Type | Initial Value | Description |
 | --- |:---:|:---:| --- |
+| name | ```String``` | see Equipment section | The Equipment name |
 
 ```Equipment``` class:
 
 | Attrbitute | Type | Initial Value | Description |
 | --- |:---:|:---:| --- |
+| type | ```EquipmentType``` | see above | The equipment type |
+| name | ```String``` | | The equipment name |
+| modifier | ```AttributeModifier``` | see below | The attribute modifier |
 
 ## Attributes
 
@@ -100,6 +100,13 @@ Attributes can be simple or structural.
 | Life | Life points |
 | Mana | Mana points to invoke magic |
 
+To calculate the Simple Attributes:
+
+```
+Life = 2d20 + Class.life + Race.life
+Mana = 1d20 + Class.mana + Race.mana
+```
+
 ### Structural Attributes
 
 | Name | Symbol | Description |
@@ -108,6 +115,13 @@ Attributes can be simple or structural.
 | Dexterity | ```DEX``` | The ability to miss an attack |
 | Intelligence | ```INT``` | Can be use to call a physical or magical critical hit |
 | Defense | ```DEF``` | Can use to defend or lower the attack power |
+
+To calculate the Structural Attributes:
+
+```
+s = 1d20 + class.s + race.s + sum(equip.s)
+```
+
 
 ## Classes
 
@@ -128,7 +142,7 @@ Attributes can be simple or structural.
 | Dwarf | Male   |   +7 |   +3 |  +7 |  +3 |  +3 |  +7 |
 |       | Female |   +7 |   +3 |  +7 |  +3 |  +3 |  +7 |
 
-## Wearables
+## Equipment
 
 | Type      |
 | --------- |
