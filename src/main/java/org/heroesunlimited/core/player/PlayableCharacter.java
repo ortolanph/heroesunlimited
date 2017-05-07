@@ -6,11 +6,11 @@ public class PlayableCharacter {
     public PlayableCharacter() {
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -104,7 +104,7 @@ public class PlayableCharacter {
         this.equipment.remove(type);
     }
 
-    private Integer id;
+    private String id;
     private String name;
     private Integer gold;
     private LevelInfo levelInfo;

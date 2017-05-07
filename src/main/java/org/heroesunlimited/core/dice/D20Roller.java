@@ -1,4 +1,4 @@
-package org.heroesunlimitedcore.dice;
+package org.heroesunlimited.core.dice;
 
 import java.util.Random;
 import java.util.stream.IntStream;
