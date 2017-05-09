@@ -2,10 +2,12 @@ package org.heroesunlimited.core.player;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class LevelInfoTest {
 
+    @DisplayName("Test Level One")
     @Test
     public void mustBeLevelOne() {
         LevelInfo actual = LevelInfo.levelOne();
@@ -17,6 +19,7 @@ class LevelInfoTest {
         Assertions.assertEquals(expected.getLevel(), actual.getLevel(), "Level");
     }
 
+    @DisplayName("Test Level Two")
     @Test
     public void mustBeLevelTwo() {
         LevelInfo actual = LevelInfo.levelOne();
@@ -29,6 +32,7 @@ class LevelInfoTest {
         Assertions.assertEquals(expected.getLevel(), actual.getLevel(), "Level");
     }
 
+    @DisplayName("Test Level Two with remaining experience")
     @Test
     public void mustBeLevelTwoWithRemainingExperience() {
         LevelInfo actual = LevelInfo.levelOne();
@@ -41,6 +45,7 @@ class LevelInfoTest {
         Assertions.assertEquals(expected.getLevel(), actual.getLevel(), "Level");
     }
 
+    @DisplayName("Test Multiple Level Up")
     @Test
     public void mustMultipleLevelUp() {
         LevelInfo actual = LevelInfo.levelOne();

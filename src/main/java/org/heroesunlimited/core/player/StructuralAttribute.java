@@ -13,4 +13,12 @@ public enum StructuralAttribute {
         this.name = name;
         this.symbol = symbol;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getSymbol() {
+        return this.symbol;
+    }
 }

@@ -20,7 +20,7 @@ public enum PlayerRace {
         this.modifier = modifier;
     }
 
-    public PlayerRace find(String race, Gender gender) {
+    public static PlayerRace find(String race, Gender gender) {
         return Arrays
                 .asList(values())
                 .stream()
