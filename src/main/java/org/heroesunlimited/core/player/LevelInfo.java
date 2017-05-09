@@ -1,8 +1,6 @@
 package org.heroesunlimited.core.player;
 
 public class LevelInfo {
-    public static final LevelInfo LEVEL_ONE = new LevelInfo();
-
     public LevelInfo() {
     }
 
@@ -33,18 +31,24 @@ public class LevelInfo {
     public void addExperience(int amount) {
         experience += amount;
 
-        if ((next - experience) < 0) {
+        while (next <= experience) {
             levelUp();
         }
     }
 
+    public static LevelInfo levelOne() {
+        return new LevelInfo();
+    }
+
     private void levelUp() {
         level++;
-        int remaining = (next - experience) * -1;
-        next = (int)(next * 1.6) - remaining;
+        next = (int)(next * 1.6) + BASE_EXPERIENCE_POINTS;
     }
 
     private Integer level = 1;
     private Integer experience = 0;
     private Integer next = 1200;
+
+    private static final Double FACTOR = 1.6;
+    private static final Integer BASE_EXPERIENCE_POINTS = 1200;
 }
