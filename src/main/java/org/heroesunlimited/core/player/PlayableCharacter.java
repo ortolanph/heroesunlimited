@@ -106,7 +106,7 @@ public class PlayableCharacter {
 
     private String id;
     private String name;
-    private Integer gold;
+    private Integer gold = 0;
     private LevelInfo levelInfo;
     private PlayerClass playerClass;
     private PlayerRace playerRace;

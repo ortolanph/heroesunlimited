@@ -9,17 +9,16 @@ class SimpleAttributeTest {
     @Test
     void creationTest() {
         SimpleAttribute actual = new SimpleAttribute(20);
-        
-        int expectedCurrent = 10;
-        int expectedInitial = 10;
+
+        int expectedCurrent = 20;
+        int expectedInitial = 20;
 
         assertEquals(expectedCurrent, actual.getCurrent(), "Current");
         assertEquals(expectedInitial, actual.getInitial(), "Initial");
     }
     
-    
     @Test
-    void damage() {
+    void takeDamage() {
         SimpleAttribute actual = new SimpleAttribute(20);
 
         actual.damage(10);
@@ -32,7 +31,7 @@ class SimpleAttributeTest {
     }
 
     @Test
-    void seriousDamage() {
+    void takeSeriousDamage() {
         SimpleAttribute actual = new SimpleAttribute(20);
 
         actual.damage(30);

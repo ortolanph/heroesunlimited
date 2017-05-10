@@ -70,6 +70,26 @@ public class AttributeModifier {
         this.defense = defense;
     }
 
+    public Integer getAttributeById(StructuralAttribute id) {
+        Integer value = 0;
+
+        switch (id) {
+            case STRENGTH:
+                value = getStrength();
+                break;
+            case DEFENSE:
+                value = getDefense();
+                break;
+            case DEXTERITY:
+                value = getDexterity();
+                break;
+            case INTELLIGENCE:
+                value = getIntelligence();
+        }
+
+        return value;
+    }
+
     private Integer life = 0;
     private Integer mana = 0;
     private Integer strength = 0;
