@@ -82,6 +82,6 @@ public class CamelBuilder extends RouteBuilder {
                 .bean(EquipmentService.class, "equipAccessory(${header.id}, ${header.accessoryId})");
 
         from("telegram:bots/" + environment.getProperty("TELEGRAM_CODE"))
-                .bean(UnilimitedHeroBot.class);
+                .bean(UnlimitedHeroBot.class);
     }
 }
