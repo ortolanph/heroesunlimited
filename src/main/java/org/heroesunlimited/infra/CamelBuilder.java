@@ -2,6 +2,7 @@ package org.heroesunlimited.infra;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
+import org.heroesunlimited.business.AdminService;
 import org.heroesunlimited.business.EquipmentService;
 import org.heroesunlimited.business.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,16 +33,40 @@ public class CamelBuilder extends RouteBuilder {
                 .bean(PlayerService.class, "build(${header.name})")
                 .endRest()
 
-                .get("/name/{name}/class/{class}")
+                .get("/name/{name}/class/{playerClass}")
                 .description("Returns a named human male player with selected class unequipped.")
                 .route()
-                .bean(PlayerService.class, "build(${header.name}, ${header.class})")
+                .bean(PlayerService.class, "build(${header.name}, ${header.playerClass})")
                 .endRest()
 
-                .get("/name/{name}/class/{class}/race/{race}/gender/{gender}")
+                .get("/name/{name}/class/{playerClass}/race/{playerRace}/gender/{gender}")
                 .description("Returns a named player with selected class, race and gender unequipped.")
                 .route()
-                .bean(PlayerService.class, "build(${header.name}, ${header.class}, ${header.race}, ${header.gender}");
+                .bean(PlayerService.class, "build(${header.name}, ${header.playerClass}, ${header.playerRace}, ${header.gender}")
+                .endRest()
+
+                .get("/id/{id}")
+                .description("Returns a determined hero by id")
+                .route()
+                .bean(PlayerService.class, "getById(${header.id})")
+                .endRest()
+
+                .get("/name/{name}")
+                .description("Returns a determined hero by name")
+                .route()
+                .bean(PlayerService.class, "getByName(${header.name})")
+                .endRest()
+
+                .get("/races")
+                .description("Returns the list of races")
+                .route()
+                .bean(PlayerService.class, "getRaces()")
+                .endRest()
+
+                .get("/classes")
+                .description("Returns the list of classes")
+                .route()
+                .bean(PlayerService.class, "getRaces()");
 
         rest("/equipment")
                 .description("Equips a player")
@@ -79,9 +104,29 @@ public class CamelBuilder extends RouteBuilder {
                 .get("/player/{id}/weapon/{accessoryId}")
                 .description("Equips a player with an accessory")
                 .route()
-                .bean(EquipmentService.class, "equipAccessory(${header.id}, ${header.accessoryId})");
+                .bean(EquipmentService.class, "equipAccessory(${header.id}, ${header.accessoryId})")
+                .endRest()
 
-        from("telegram:bots/" + environment.getProperty("TELEGRAM_CODE"))
+                .get("/ofKind/{kind}")
+                .description("List all equipment of a kind")
+                .route()
+                .bean(EquipmentService.class, "listAllOfKind(${kind})")
+                .endRest()
+
+                .get("/kinds")
+                .description("List all kinds")
+                .route()
+                .bean(EquipmentService.class, "getKinds()");
+
+        rest("/admin")
+                .description("Admin tasks")
+
+                .get("/clear/{password}")
+                .description("Clears database")
+                .route()
+                .bean(AdminService.class, "clearDatabase(password)");
+
+        from("telegram:bots/" + environment.getProperty("HEROES_UNLIMITED_TELEGRAM_ID"))
                 .bean(UnlimitedHeroBot.class);
     }
 }

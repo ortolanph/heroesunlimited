@@ -27,12 +27,12 @@ public class SimpleAttribute {
 
     public void damage(Integer amount) {
         current -= amount;
-        if(current < 0) current = 0;
+        if (current < 0) current = 0;
     }
 
     public void heal(Integer amount) {
         current += amount;
-        if(current > initial) current = initial;
+        if (current > initial) current = initial;
     }
 
     private int initial;

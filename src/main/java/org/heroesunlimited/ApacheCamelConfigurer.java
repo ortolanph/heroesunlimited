@@ -19,5 +19,6 @@ public class ApacheCamelConfigurer extends WebMvcConfigurerAdapter {
         servlet.setName("CamelServlet");
         return servlet;
     }
+
     private static final Logger LOGGER = Logger.getLogger(ApacheCamelConfigurer.class.getName());
 }

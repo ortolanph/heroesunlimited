@@ -2,7 +2,8 @@ package org.heroesunlimited.core.player;
 
 public class AttributeModifier {
 
-    public AttributeModifier() {}
+    public AttributeModifier() {
+    }
 
     public AttributeModifier(Integer life, Integer mana, Integer strength, Integer dexterity, Integer intelligence, Integer defense) {
         this.life = life;

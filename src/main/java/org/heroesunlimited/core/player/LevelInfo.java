@@ -42,7 +42,7 @@ public class LevelInfo {
 
     private void levelUp() {
         level++;
-        next = (int)(next * 1.6) + BASE_EXPERIENCE_POINTS;
+        next = (int) (next * 1.6) + BASE_EXPERIENCE_POINTS;
     }
 
     private Integer level = 1;

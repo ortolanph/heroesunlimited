@@ -6,7 +6,7 @@ public enum PlayerClass {
 
     CLERIC("Cleric", new AttributeModifier(5, 15, 5, 5, 15, 5)),
     ROGUE("Rogue", new AttributeModifier(10, 5, 10, 15, 10, 10)),
-    WARRIOR("Warrior", new AttributeModifier(15 , 5, 15, 5, 5, 15));
+    WARRIOR("Warrior", new AttributeModifier(15, 5, 15, 5, 5, 15));
 
     private String name;
     private AttributeModifier modifier;

@@ -13,7 +13,9 @@ public class D20Roller {
         return IntStream.rangeClosed(1, times).map(x -> roll()).sum();
     }
 
-    private D20Roller() {}
+    private D20Roller() {
+    }
+
     private static final Random random = new Random();
     private static final int FACES = 20;
 }

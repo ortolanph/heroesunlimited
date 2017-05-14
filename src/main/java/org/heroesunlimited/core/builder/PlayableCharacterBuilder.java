@@ -68,7 +68,8 @@ public class PlayableCharacterBuilder {
         return this.player;
     }
 
-    private PlayableCharacterBuilder() { }
+    private PlayableCharacterBuilder() {
+    }
 
     private PlayableCharacter player;
     private static final PlayableCharacterBuilder INSTANCE = new PlayableCharacterBuilder();

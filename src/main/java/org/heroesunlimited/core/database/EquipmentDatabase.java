@@ -3,12 +3,14 @@ package org.heroesunlimited.core.database;
 import org.heroesunlimited.core.player.AttributeModifier;
 import org.heroesunlimited.core.player.Equipment;
 import org.heroesunlimited.core.player.EquipmentType;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.heroesunlimited.core.player.EquipmentType.*;
 
+@Component
 public class EquipmentDatabase {
 
     public EquipmentDatabase() {
@@ -22,7 +24,7 @@ public class EquipmentDatabase {
                 .filter(e -> e.getId().equals(id))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(String.format("type %s or id %s invalid", type, id)));
-}
+    }
 
     private void load() {
         //Weapons
