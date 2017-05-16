@@ -7,11 +7,18 @@ import org.heroesunlimited.business.EquipmentService;
 import org.heroesunlimited.business.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
+import java.util.logging.Logger;
+
+@Component
 public class CamelBuilder extends RouteBuilder {
 
     @Autowired
     private Environment environment;
+
+    @Autowired
+    private UnlimitedHeroBot bot;
 
     @Override
     public void configure() throws Exception {
@@ -27,19 +34,19 @@ public class CamelBuilder extends RouteBuilder {
         rest("/players")
                 .description("Player Builder")
 
-                .get("/name/{name}")
+                .post("/name/{name}")
                 .description("Returns a named human warrior male player unequipped.")
                 .route()
                 .bean(PlayerService.class, "build(${header.name})")
                 .endRest()
 
-                .get("/name/{name}/class/{playerClass}")
+                .post("/name/{name}/class/{playerClass}")
                 .description("Returns a named human male player with selected class unequipped.")
                 .route()
                 .bean(PlayerService.class, "build(${header.name}, ${header.playerClass})")
                 .endRest()
 
-                .get("/name/{name}/class/{playerClass}/race/{playerRace}/gender/{gender}")
+                .post("/name/{name}/class/{playerClass}/race/{playerRace}/gender/{gender}")
                 .description("Returns a named player with selected class, race and gender unequipped.")
                 .route()
                 .bean(PlayerService.class, "build(${header.name}, ${header.playerClass}, ${header.playerRace}, ${header.gender}")
@@ -110,7 +117,7 @@ public class CamelBuilder extends RouteBuilder {
                 .get("/ofKind/{kind}")
                 .description("List all equipment of a kind")
                 .route()
-                .bean(EquipmentService.class, "listAllOfKind(${kind})")
+                .bean(EquipmentService.class, "ofKind(${kind})")
                 .endRest()
 
                 .get("/kinds")
@@ -126,7 +133,11 @@ public class CamelBuilder extends RouteBuilder {
                 .route()
                 .bean(AdminService.class, "clearDatabase(password)");
 
-        from("telegram:bots/" + environment.getProperty("HEROES_UNLIMITED_TELEGRAM_ID"))
-                .bean(UnlimitedHeroBot.class);
+        String botId = environment.getProperty("HEROES_UNLIMITED_TELEGRAM_ID");
+
+        from("telegram:bots/" + botId)
+                .bean(bot);
     }
+
+    private static final Logger LOGGER = Logger.getLogger(CamelBuilder.class.getName());
 }
