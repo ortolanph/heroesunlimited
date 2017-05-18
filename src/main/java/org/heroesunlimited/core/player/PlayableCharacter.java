@@ -1,5 +1,7 @@
 package org.heroesunlimited.core.player;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 public class PlayableCharacter {
@@ -84,6 +86,12 @@ public class PlayableCharacter {
         attributes.replace(attribute, newValue);
     }
 
+    public void downgradeStructuralAttribute(StructuralAttribute attribute, Integer value) {
+        Integer oldValue = attributes.getOrDefault(attribute, 0);
+        Integer newValue = oldValue - value;
+        attributes.replace(attribute, newValue);
+    }
+
     public void setAttributes(Map<StructuralAttribute, Integer> attributes) {
         this.attributes = attributes;
     }
@@ -96,12 +104,19 @@ public class PlayableCharacter {
         this.equipment = equipment;
     }
 
-    public void equip(EquipmentType type, Equipment equipment) {
-        this.equipment.put(type, equipment);
+    public void equip(EquipmentType type, Equipment toEquip) {
+        equipment.put(type, toEquip);
+        Arrays
+                .stream(StructuralAttribute.values())
+                .forEach(s -> upgradeStructuralAttribute(s, toEquip.getModifier().getAttributeById(s)));
     }
 
     public void unequip(EquipmentType type) {
-        this.equipment.remove(type);
+        Equipment equippedEquipment = equipment.get(type);
+        equipment.remove(type);
+        Arrays
+                .stream(StructuralAttribute.values())
+                .forEach(s -> upgradeStructuralAttribute(s, equippedEquipment.getModifier().getAttributeById(s)));
     }
 
     private String id;

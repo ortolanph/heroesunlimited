@@ -44,7 +44,7 @@ public class PlayableCharacterBuilder {
                 .build();
     }
 
-    public PlayableCharacter playerWithClass(String name, String className, String raceName, Gender gender) {
+    public PlayableCharacter playerWithClassAndRace(String name, String className, String raceName, Gender gender) {
         return newPlayer(name)
                 .withClass(PlayerClass.find(className))
                 .withRace(PlayerRace.find(raceName, gender))
@@ -53,7 +53,7 @@ public class PlayableCharacterBuilder {
 
     public PlayableCharacter build() {
         player.setLife(attributeBuilder.calculateLifePoints(player.getPlayerRace(), player.getPlayerClass()));
-        player.setMana(attributeBuilder.calculateLifePoints(player.getPlayerRace(), player.getPlayerClass()));
+        player.setMana(attributeBuilder.calculateManaPoints(player.getPlayerRace(), player.getPlayerClass()));
 
         Arrays
                 .stream(StructuralAttribute.values())

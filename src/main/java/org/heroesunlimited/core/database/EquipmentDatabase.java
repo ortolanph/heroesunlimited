@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.heroesunlimited.core.player.EquipmentType.*;
 
@@ -24,6 +25,13 @@ public class EquipmentDatabase {
                 .filter(e -> e.getId().equals(id))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(String.format("type %s or id %s invalid", type, id)));
+    }
+
+    public List<Equipment> findByKind(EquipmentType type) {
+        return equipment
+                .stream()
+                .filter(e -> e.getType().equals(type))
+                .collect(Collectors.toList());
     }
 
     private void load() {

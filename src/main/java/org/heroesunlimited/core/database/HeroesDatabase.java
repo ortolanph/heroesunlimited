@@ -29,6 +29,10 @@ public class HeroesDatabase {
                 .orElseThrow(() -> new IllegalArgumentException(String.format("Player with name %s not found!", name)));
     }
 
+    public void insert(PlayableCharacter playableCharacter) {
+        heroes.add(playableCharacter);
+    }
+
     public void clearDatabase() {
         heroes.clear();
     }

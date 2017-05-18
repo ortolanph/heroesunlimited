@@ -128,10 +128,10 @@ public class CamelBuilder extends RouteBuilder {
         rest("/admin")
                 .description("Admin tasks")
 
-                .get("/clear/{password}")
+                .get("/clear")
                 .description("Clears database")
                 .route()
-                .bean(AdminService.class, "clearDatabase(password)");
+                .bean(AdminService.class, "clearDatabase()");
 
         String botId = environment.getProperty("HEROES_UNLIMITED_TELEGRAM_ID");
 

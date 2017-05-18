@@ -16,11 +16,7 @@ public class AdminService {
     @Autowired
     private Environment environment;
 
-    public void clearDatabase(@NotNull String password) throws Exception {
-        if(password.equals(environment.getProperty("HEROES_UNLIMITED_PASSWORD"))) {
-            database.clearDatabase();
-        } else {
-            throw new Exception("Wrong password!");
-        }
+    public void clearDatabase() throws Exception {
+        database.clearDatabase();
     }
 }

@@ -1,10 +1,14 @@
 package org.heroesunlimited.business;
 
+import org.heroesunlimited.core.database.EquipmentDatabase;
+import org.heroesunlimited.core.database.HeroesDatabase;
 import org.heroesunlimited.core.player.Equipment;
 import org.heroesunlimited.core.player.EquipmentType;
 import org.heroesunlimited.core.player.PlayableCharacter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -35,14 +39,25 @@ public class EquipmentService {
     }
 
     public List<Equipment> ofKind(String kind) {
-        return null;
+        return equipmentDatabase.findByKind(EquipmentType.valueOf(kind));
     }
 
-    public List<String> getKinds() {
-        return null;
+    public List<EquipmentType> getKinds() {
+        return Arrays.asList(EquipmentType.values());
     }
+
+
+    @Autowired
+    private HeroesDatabase heroesDatabase;
+
+    @Autowired
+    private EquipmentDatabase equipmentDatabase;
 
     private PlayableCharacter equip(String id, EquipmentType type, int equipmentId) {
-        return null;
+        PlayableCharacter character = heroesDatabase.findById(id);
+
+        character.equip(type, equipmentDatabase.find(type, equipmentId));
+
+        return character;
     }
 }
