@@ -49,7 +49,7 @@ public class CamelBuilder extends RouteBuilder {
                 .post("/name/{name}/class/{playerClass}/race/{playerRace}/gender/{gender}")
                 .description("Returns a named player with selected class, race and gender unequipped.")
                 .route()
-                .bean(PlayerService.class, "build(${header.name}, ${header.playerClass}, ${header.playerRace}, ${header.gender}")
+                .bean(PlayerService.class, "build(${header.name}, ${header.playerClass}, ${header.playerRace}, ${header.gender})")
                 .endRest()
 
                 .get("/id/{id}")
@@ -73,7 +73,7 @@ public class CamelBuilder extends RouteBuilder {
                 .get("/classes")
                 .description("Returns the list of classes")
                 .route()
-                .bean(PlayerService.class, "getRaces()");
+                .bean(PlayerService.class, "getClasses()");
 
         rest("/equipment")
                 .description("Equips a player")
@@ -133,10 +133,10 @@ public class CamelBuilder extends RouteBuilder {
                 .route()
                 .bean(AdminService.class, "clearDatabase()");
 
-        String botId = environment.getProperty("HEROES_UNLIMITED_TELEGRAM_ID");
-
-        from("telegram:bots/" + botId)
-                .bean(bot);
+//        String botId = environment.getProperty("HEROES_UNLIMITED_TELEGRAM_ID");
+//
+//        from("telegram:bots/" + botId)
+//                .bean(bot);
     }
 
     private static final Logger LOGGER = Logger.getLogger(CamelBuilder.class.getName());
