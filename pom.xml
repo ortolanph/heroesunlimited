@@ -52,7 +52,6 @@
         <bin.name>heroesunlimited</bin.name>
     </properties>
 
-
     <build>
         <finalName>${bin.name}</finalName>
         <plugins>

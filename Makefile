@@ -1,5 +1,6 @@
 SPRING_APP_PORT=9090
 JAR_FILE=heroesunlimited.jar
+DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787"
 
 .PHONY: clean
 
@@ -10,4 +11,7 @@ compile:
 	@mvn clean install
 
 start: compile
-	@java -Dserver.port=$(SPRING_APP_PORT) -jar target/$(JAR_FILE)
+	@java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787 \
+	      -Dspring.profiles.active=$(PROFILE) \
+				-Dserver.port=${SPRING_APP_PORT} \
+				-jar target/${JAR_FILE}

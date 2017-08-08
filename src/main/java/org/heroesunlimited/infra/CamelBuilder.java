@@ -117,7 +117,7 @@ public class CamelBuilder extends RouteBuilder {
                 .get("/ofKind/{kind}")
                 .description("List all equipment of a kind")
                 .route()
-                .bean(EquipmentService.class, "ofKind(${kind})")
+                .bean(EquipmentService.class, "ofKind(${header.kind})")
                 .endRest()
 
                 .get("/kinds")
