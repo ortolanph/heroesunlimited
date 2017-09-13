@@ -15,8 +15,6 @@ public class AttributeModifier {
     }
 
     public AttributeModifier(Integer strength, Integer dexterity, Integer intelligence, Integer defense) {
-        this.life = life;
-        this.mana = mana;
         this.strength = strength;
         this.dexterity = dexterity;
         this.intelligence = intelligence;

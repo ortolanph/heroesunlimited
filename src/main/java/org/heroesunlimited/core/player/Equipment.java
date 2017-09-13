@@ -1,9 +1,6 @@
 package org.heroesunlimited.core.player;
 
 public class Equipment {
-    public Equipment(int i, EquipmentType weapon) {
-    }
-
     public Equipment(Integer id, EquipmentType type, String name, AttributeModifier modifier) {
         this.id = id;
         this.type = type;

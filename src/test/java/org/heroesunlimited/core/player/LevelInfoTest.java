@@ -63,7 +63,7 @@ class LevelInfoTest {
     private static final Integer HUGE_EXPERIENCE_AMOUNT = 5000;
 
 
-    public LevelInfo buildLevelOne() {
+    private LevelInfo buildLevelOne() {
         LevelInfo levelOne = new LevelInfo();
 
         levelOne.setExperience(0);
@@ -73,7 +73,7 @@ class LevelInfoTest {
         return levelOne;
     }
 
-    public LevelInfo buildLevelInfo(int level, int experience, int next) {
+    private LevelInfo buildLevelInfo(int level, int experience, int next) {
         LevelInfo newLevel = new LevelInfo();
 
         newLevel.setLevel(level);
