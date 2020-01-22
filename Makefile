@@ -10,8 +10,13 @@ clean:
 compile:
 	@mvn clean install
 
-start: compile
+debug: compile
 	@java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787 \
-	      -Dspring.profiles.active=$(PROFILE) \
-				-Dserver.port=${SPRING_APP_PORT} \
-				-jar target/${JAR_FILE}
+          -Dspring.profiles.active=$(PROFILE) \
+          -Dserver.port=${SPRING_APP_PORT} \
+          -jar target/${JAR_FILE}
+
+start: compile
+	@java -Dspring.profiles.active=$(PROFILE) \
+	      -Dserver.port=${SPRING_APP_PORT} \
+          -jar target/${JAR_FILE}

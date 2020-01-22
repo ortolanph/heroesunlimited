@@ -132,11 +132,11 @@ public class CamelBuilder extends RouteBuilder {
                 .description("Clears database")
                 .route()
                 .bean(AdminService.class, "clearDatabase()");
+                
+        String botId = environment.getProperty("HEROES_UNLIMITED_TELEGRAM_ID");
 
-//        String botId = environment.getProperty("HEROES_UNLIMITED_TELEGRAM_ID");
-//
-//        from("telegram:bots/" + botId)
-//                .bean(bot);
+        from("telegram:bots/" + botId)
+                .bean(bot);
     }
 
     private static final Logger LOGGER = Logger.getLogger(CamelBuilder.class.getName());

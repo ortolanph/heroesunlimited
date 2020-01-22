@@ -10,3 +10,8 @@ hs_err_pid*
 
 ### Maven template
 target/
+
+### Other
+.classpath
+.project
+.settings/
