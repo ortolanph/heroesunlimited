@@ -7,7 +7,6 @@ import org.heroesunlimited.core.player.PlayableCharacter;
 import org.heroesunlimited.core.player.PlayerClass;
 import org.heroesunlimited.core.player.PlayerRace;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
