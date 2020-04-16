@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.heroesunlimited.core.player.PlayerRaceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-04-16T14:44:17" hostname="ortolan-pc" time="0.024">
+  <properties/>
+  <testcase name="findElfMale()" classname="org.heroesunlimited.core.player.PlayerRaceTest" time="0.014"/>
+  <testcase name="findElfFemale()" classname="org.heroesunlimited.core.player.PlayerRaceTest" time="0.0"/>
+  <testcase name="findHumanMale()" classname="org.heroesunlimited.core.player.PlayerRaceTest" time="0.001"/>
+  <testcase name="findDwarfFemale()" classname="org.heroesunlimited.core.player.PlayerRaceTest" time="0.001"/>
+  <testcase name="findDwarfMale()" classname="org.heroesunlimited.core.player.PlayerRaceTest" time="0.001"/>
+  <testcase name="findHumanFemale()" classname="org.heroesunlimited.core.player.PlayerRaceTest" time="0.001"/>
+  <testcase name="findException()" classname="org.heroesunlimited.core.player.PlayerRaceTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
