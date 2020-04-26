@@ -18,7 +18,7 @@ public class SerialNumber {
     }
 
     private static String toHexNumber(String part) {
-        return Integer.toHexString(Integer.valueOf(part));
+        return Integer.toHexString(Integer.parseInt(part));
     }
 
     private static final String SERIAL_NUMBER_FORMAT = "%s%s%s%s%s";

@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotNull;
-
 @Component
 public class AdminService {
 
@@ -16,7 +14,7 @@ public class AdminService {
     @Autowired
     private Environment environment;
 
-    public void clearDatabase() throws Exception {
+    public void clearDatabase() {
         database.clearDatabase();
     }
 }
