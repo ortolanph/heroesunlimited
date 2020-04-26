@@ -281,3 +281,60 @@ Returns a named player with selected class, race and gender unequipped.
 ```
 
 Where ```id``` is the created player id and ```{xId}``` is the equipment id according to previous sections.
+
+# Building the project
+
+This project was built originally with maven and then converted to gradle.
+
+There are tow options to build this project.
+
+## Command line
+
+To build:
+
+```shell script
+./gradlew clean build docekr generateDockerCompose dockerComposeUp
+```
+
+To stop:
+
+```shell script
+./gradlew dockerComposeDown
+```
+
+## Makefile
+
+To create a fresh build:
+
+```shell script
+make clean
+make compile
+```
+
+To run locally: 
+
+```shell script
+make start-local
+```
+
+To debug locally: 
+
+```shell script
+make debug-local
+```
+
+Start with Docker:
+
+```shell script
+make start-docker
+```
+
+Stop Docker:
+```shell script
+make stop-docker
+```
+
+Build and start docker:
+```shell script
+make all
+```

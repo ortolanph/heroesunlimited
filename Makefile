@@ -1,22 +1,28 @@
 SPRING_APP_PORT=9090
-JAR_FILE=heroesunlimited.jar
-DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787"
+JAR_FILE=HeroesUnlimited-0.0.1-SNAPSHOT.jar
 
 .PHONY: clean
 
 clean:
-	@mvn clean
+	@./gradlew clean
 
 compile:
-	@mvn clean install
+	@./gradlew build
 
-debug: compile
+debug-local: compile
 	@java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8787 \
-          -Dspring.profiles.active=$(PROFILE) \
           -Dserver.port=${SPRING_APP_PORT} \
-          -jar target/${JAR_FILE}
+          -jar build/libs/${JAR_FILE}
 
-start: compile
-	@java -Dspring.profiles.active=$(PROFILE) \
-	      -Dserver.port=${SPRING_APP_PORT} \
-          -jar target/${JAR_FILE}
+start-local: compile
+	@java -Dserver.port=${SPRING_APP_PORT} \
+          -jar build/libs/${JAR_FILE}
+
+start-docker:
+	@./gradlew docker generateDockerCompose dockerComposeUp
+
+all:
+	@./gradlew clean build docker generateDockerCompose dockerComposeUp
+
+stop-docker:
+	@./gradlew dockerComposeDown

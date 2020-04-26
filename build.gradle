@@ -2,6 +2,9 @@ plugins {
 	id 'org.springframework.boot' version '2.2.6.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
+	id 'com.palantir.docker' version '0.25.0'
+	id("com.palantir.docker-run") version "0.25.0"
+	id "com.palantir.docker-compose" version "0.25.0"
 }
 
 group = 'org.heroesunlimited'
@@ -33,6 +36,37 @@ dependencies {
 	}
 }
 
-test {
-	useJUnitPlatform()
+task unpack(type: Copy) {
+	dependsOn bootJar
+	from(zipTree(tasks.bootJar.outputs.files.singleFile))
+	into("build/docker/dependency")
+}
+
+docker {
+	name "heroesunlimited"
+	tag 'local', '${project.name}:latest'
+	tag 'localVersion', "${project.name}:${version}"
+	buildArgs([DEPENDENCY: "dependency", APPCLASS: 'org.heroesunlimited.HeroesUnlimitedApplication'])
+	dockerfile file("Dockerfile")
+}
+
+dockerCompose {
+	template 'src/main/docker/docker-compose.heroesunlimited.yml'
+	dockerComposeFile "$buildDir/docker/ortolanuniverse/docker-compose.yml"
+	templateTokens([
+			'heroesunlimited.version': "$project.version",
+	])
+}
+
+dockerRun {
+	name = "heroes-unlimieted-main"
+	image = "heroesunlimited"
+	ports("8080:8080")
+}
+
+dockerPrepare.dependsOn unpack
+
+configure(unpack) {
+	group = 'docker'
+	description = 'Unpacks the boot jar so we can build multi-layer images'
 }
