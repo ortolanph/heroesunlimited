@@ -338,3 +338,7 @@ Build and start docker:
 ```shell script
 make all
 ```
+
+## Testing with Gatling
+
+It just runs inside IntelliJ. WIP: running outside.
