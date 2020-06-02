@@ -6,18 +6,16 @@
 hs_err_pid*
 
 ### JetBrains template
-.idea/
-
-### Maven template
-target/
+.idea/**
 
 ### Other
 .classpath
 .project
-.settings/
+.settings/**
 
 ### Gradle
-.gradle/
-build/
+.gradle/**
+build/**
 
-logs
+logs/**
+lsp/**

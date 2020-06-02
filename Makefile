@@ -26,3 +26,6 @@ all:
 
 stop-docker:
 	@./gradlew dockerComposeDown
+
+gatling:
+	@./gradlew gatlingRun
