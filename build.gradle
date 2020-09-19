@@ -35,10 +35,17 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.2")
 	gatling 'com.google.code.gson:gson:2.8.0'
 	gatlingImplementation 'org.apache.commons:commons-lang3:3.4'
 	gatlingRuntimeOnly 'cglib:cglib-nodep:3.2.0'
 }
+
+test {
+	useJUnitPlatform()
+}
+
 
 task unpack(type: Copy) {
 	dependsOn bootJar
